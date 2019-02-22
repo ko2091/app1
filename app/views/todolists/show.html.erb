@@ -1,0 +1,15 @@
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+<h2>タイトル</h2>
+<p><%= @list.title %></p>
+<h2>本文</h2>
+<p><%= @list.body %></p>
+<h2>画像</h2>
+<%= attachment_image_tag @list, :image, :fill, 300, 300, format: 'jpeg' %>
+<%= link_to "edit", edit_todolist_path(@list.id) ,class:"edit_#{@list_id}"%> 
+<%= link_to "back", home_path(@list.id),class:"back" %> 
+
+

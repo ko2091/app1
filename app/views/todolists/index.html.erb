@@ -1,0 +1,33 @@
+ <div class="books">Books</div>
+  <table>
+      <thead>
+          <tr>
+              <th>title</th>
+              <th>body</th>
+              <th></th>
+              <th></th>
+              <th></th>
+          </tr>
+      </thead>
+      <% @lists.each do |list| %>
+      <tbody>
+         <tr>
+         <th><%= list.title %></th>
+         <th><%= list.body %></th>
+         <th><%= link_to "show",todolist_path(list.id),class:"show_#{list.id}"  %></th>
+         <th><%= link_to "edit", edit_todolist_path(list.id),class:"edit_#{list.id}"	%></th>
+         <th><%= link_to "delete", destroy_todolist_path(list.id),method: :delete, "data-confirm" => "本当に削除しますか？",class:"delete_#{list.id}"%></th>
+      </tbody>
+      <% end %>
+  </table>
+  
+  <%= form_for(@list, url: '/todolists') do |f| %>
+ 
+    <h4>タイトル</h4>
+    <%= f.text_field :title ,class:"book_title" %>
+    <h4>本文</h4>
+    <%= f.text_area :body,class:"book_body" %>
+    <%= f.submit '投稿' %>
+    
+  <% end %>
+  
