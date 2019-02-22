@@ -19,7 +19,7 @@ class TodolistsController < ApplicationController
         #  list.save
         # redirect_to todolist_path(list.id)
     if list.save
-      flash[:notice] = "投稿を作成しました"
+      flash[:notice] = "successfully"
       redirect_to todolist_path(list.id)
     else
       redirect_to todolist_path(list.id)
@@ -34,7 +34,7 @@ class TodolistsController < ApplicationController
         list = List.find(params[:id])
         #list.update(list_params)
     if list.update(list_params)
-      flash[:notice] = "投稿を作成しました"
+      flash[:notice] = "successfully"
       redirect_to todolist_path(list.id)
     else
       redirect_to todolist_path(list.id)
